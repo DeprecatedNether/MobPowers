@@ -1,0 +1,3 @@
+name: DeprecatedNether-t2
+main: com.tenjava.entries.DeprecatedNether.t2.TenJava
+version: '${project.version}'
