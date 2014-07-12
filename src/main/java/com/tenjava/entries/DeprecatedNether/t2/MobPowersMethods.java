@@ -139,7 +139,7 @@ public class MobPowersMethods {
         ItemStack itemStack = new ItemStack(materials.get(type), 1);
         ItemMeta meta = itemStack.getItemMeta();
         List<String> lore = new ArrayList<String>();
-        meta.setDisplayName(ChatColor.DARK_GREEN + type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1)); // Turn "ENDERMAN" into "Enderman"
+        meta.setDisplayName(ChatColor.DARK_GREEN + getEntityName(type)); // Turn "ENDERMAN" into "Enderman"
         lore.add(ChatColor.RED + descriptions.get(type));
         lore.add(ChatColor.GOLD + "Price: " + (tokens < price ? ChatColor.RED : ChatColor.GREEN) + price);
         meta.setLore(lore);
@@ -153,11 +153,15 @@ public class MobPowersMethods {
         meta.setDisplayName(ChatColor.GOLD + "MobPowers Statistics");
         List<String> lore = new ArrayList<String>();
         for (EntityType type : data.keySet()) {
-            lore.add(ChatColor.RED + type.toString() + " Tokens: " + ChatColor.GOLD + data.get(type));
+            lore.add(ChatColor.RED + getEntityName(type) + " Tokens: " + ChatColor.GOLD + data.get(type));
         }
         meta.setLore(lore);
         itemStack.setItemMeta(meta);
         return itemStack;
+    }
+
+    public String getEntityName(EntityType type) {
+        return type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1);
     }
 
     public EntityType materialToEntityType(Material material) {
