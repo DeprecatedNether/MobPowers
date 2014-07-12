@@ -7,9 +7,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+
+import java.util.HashMap;
+import java.util.UUID;
 
 public class KillEvent implements Listener {
     private TenJava main;
+    private HashMap<UUID, UUID> lastDamage = new HashMap<UUID, UUID>(); // mob's UUID -> killer's UUID
 
     public KillEvent(TenJava main) {
         this.main = main;
@@ -23,12 +29,19 @@ public class KillEvent implements Listener {
         if (!(e.getDamager() instanceof Player)) {
 
         }
-        Damageable damageable = (Damageable) e.getEntity();
-        Player damager = (Player) e.getDamager();
-        if (damageable.getHealth() - e.getDamage() <= 0) {
-            if (main.methods.giveToken(damager, e.getEntityType())) {
-                damager.sendMessage(ChatColor.GOLD + "You earned one " + e.getEntityType().toString().toLowerCase() + " token.");
-            }
+        lastDamage.put(e.getEntity().getUniqueId(), e.getDamager().getUniqueId());
+    }
+
+    @EventHandler
+    public void death(EntityDeathEvent e) {
+        if (e.getEntity().getLastDamageCause().getCause() != EntityDamageEvent.DamageCause.ENTITY_ATTACK) return;
+        UUID uuid = lastDamage.get(e.getEntity().getUniqueId());
+        if (uuid == null) return;
+        Player killer = main.getServer().getPlayer(uuid);
+        if (killer == null) return;
+        if (main.methods.giveToken(killer, e.getEntityType())) {
+            killer.sendMessage(ChatColor.GOLD + "You earned one " + e.getEntityType().toString().toLowerCase() + " token.");
         }
+        lastDamage.remove(e.getEntity().getUniqueId());
     }
 }
