@@ -107,13 +107,17 @@ public class MobPowersMethods {
                 player.launchProjectile(Fireball.class);
                 break;
             case SQUID:
+                player.removePotionEffect(PotionEffectType.WATER_BREATHING);
                 player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*2, 1, true));
                 break;
             case HORSE:
                 Random random = new Random();
-                player.addPotionEffect(new PotionEffect(random.nextInt(2) == 1 ? PotionEffectType.JUMP : PotionEffectType.SPEED, 60*20, random.nextInt(2)+1, true));
+                PotionEffectType type = random.nextInt(2) == 1 ? PotionEffectType.JUMP : PotionEffectType.SPEED;
+                player.removePotionEffect(type);
+                player.addPotionEffect(new PotionEffect(type, 60*20, random.nextInt(2)+1, true));
                 break;
             case SPIDER:
+                player.removePotionEffect(PotionEffectType.SPEED);
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
                 break;
         }
