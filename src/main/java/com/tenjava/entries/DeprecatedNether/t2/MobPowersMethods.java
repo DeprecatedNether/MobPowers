@@ -54,14 +54,14 @@ public class MobPowersMethods {
         descriptions.put(EntityType.SKELETON, main.getConfig().getString("powers.skeleton.description"));
 
         // load materials
-        materials.put(EntityType.CREEPER, Material.SULPHUR);
-        materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);
-        materials.put(EntityType.GHAST, Material.FIREBALL);
-        materials.put(EntityType.SQUID, Material.INK_SACK);
-        materials.put(EntityType.HORSE, Material.DIAMOND_BARDING);
-        materials.put(EntityType.SPIDER, Material.SPIDER_EYE);
-        materials.put(EntityType.CAVE_SPIDER, Material.FERMENTED_SPIDER_EYE);
-        materials.put(EntityType.SKELETON, Material.ARROW);
+        materials.put(EntityType.CREEPER, Material.matchMaterial(main.getConfig().getString("powers.creeper.material").replace(" ", "_")));
+        materials.put(EntityType.ENDERMAN, Material.matchMaterial(main.getConfig().getString("powers.enderman.material").replace(" ", "_")));
+        materials.put(EntityType.GHAST, Material.matchMaterial(main.getConfig().getString("powers.ghast.material").replace(" ", "_")));
+        materials.put(EntityType.SQUID, Material.matchMaterial(main.getConfig().getString("powers.squid.material").replace(" ", "_")));
+        materials.put(EntityType.HORSE, Material.matchMaterial(main.getConfig().getString("powers.horse.material").replace(" ", "_")));
+        materials.put(EntityType.SPIDER, Material.matchMaterial(main.getConfig().getString("powers.spider.material").replace(" ", "_")));
+        materials.put(EntityType.CAVE_SPIDER, Material.matchMaterial(main.getConfig().getString("powers.cave_spider.material").replace(" ", "_")));
+        materials.put(EntityType.SKELETON, Material.matchMaterial(main.getConfig().getString("powers.skeleton.material").replace(" ", "_")));
     }
 
     /**

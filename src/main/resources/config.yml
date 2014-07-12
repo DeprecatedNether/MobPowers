@@ -4,41 +4,49 @@ powers:
     drop-chance: 50
     price: 10
     description: "Create an explosion where you're standing."
+    material: "sulphur"
   enderman:
     enabled: true
     drop-chance: 80
     price: 5
     description: "Teleport to the block you're looking at."
+    material: "ender pearl"
   ghast:
     enabled: true
     drop-chance: 90
     price: 3
     description: "Shoot a fireball."
+    material: "fireball"
   squid:
     enabled: true
     drop-chance: 20
     price: 5
     description: "Breathe underwater."
+    material: "ink sack"
   horse:
     enabled: true
     drop-chance: 30
     price: 10
     description: "Jump higher or run faster... you never know!"
+    material: "diamond barding"
   spider:
     enabled: true
     drop-chance: 30
     price: 10
     description: "Crawl faster."
+    material: "spider eye"
   cave_spider:
     enabled: true
     drop-chance: 60
     price: 5
     description: "Poison players you hit."
+    material: "fermented spider eye"
   skeleton:
     enabled: true
     drop-chance: 20
     price: 15
     description: "Shoot arrows faster than normally."
+    material: "arrow"
 ignore-creative-kills: true
 disabled-worlds:
 - MobArena
