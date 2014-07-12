@@ -23,3 +23,11 @@ powers:
     enabled: true
     drop-chance: 50
     price: 5
+  cave_spider:
+    enabled: true
+    drop-chance: 50
+    price: 5
+  skeleton:
+    enabled: true
+    drop-chance: 50
+    price: 5

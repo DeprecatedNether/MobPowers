@@ -38,6 +38,8 @@ public class MobPowersMethods {
         if (isPowerEnabled(EntityType.SQUID)) mobs.add(EntityType.SQUID);
         if (isPowerEnabled(EntityType.HORSE)) mobs.add(EntityType.HORSE);
         if (isPowerEnabled(EntityType.SPIDER)) mobs.add(EntityType.SPIDER);
+        if (isPowerEnabled(EntityType.CAVE_SPIDER)) mobs.add(EntityType.CAVE_SPIDER);
+        if (isPowerEnabled(EntityType.SKELETON)) mobs.add(EntityType.SKELETON);
 
         descriptions.put(EntityType.CREEPER, "Create an explosion where you're standing.");
         descriptions.put(EntityType.ENDERMAN, "Teleport to the block you're looking at.");
@@ -45,6 +47,8 @@ public class MobPowersMethods {
         descriptions.put(EntityType.SQUID, "Breathe underwater.");
         descriptions.put(EntityType.HORSE, "Jump higher or run faster... you never know!");
         descriptions.put(EntityType.SPIDER, "Crawl faster.");
+        descriptions.put(EntityType.CAVE_SPIDER, "Make your bite worse than your bark - give players poison when you hit them.");
+        descriptions.put(EntityType.SKELETON, "We told Mojang to nerf the insanely fast-shooting skeletons, but they didn't listen!");
 
         materials.put(EntityType.CREEPER, Material.SULPHUR);
         materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);
@@ -52,6 +56,8 @@ public class MobPowersMethods {
         materials.put(EntityType.SQUID, Material.INK_SACK);
         materials.put(EntityType.HORSE, Material.DIAMOND_BARDING);
         materials.put(EntityType.SPIDER, Material.SPIDER_EYE);
+        materials.put(EntityType.CAVE_SPIDER, Material.FERMENTED_SPIDER_EYE);
+        materials.put(EntityType.SKELETON, Material.ARROW);
     }
 
     /**
