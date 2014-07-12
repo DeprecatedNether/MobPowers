@@ -39,7 +39,7 @@ Mob powers:
 * **Squid** allows you to breathe underwater for one minute.
 * **Horse** allows you to jump higher than normally for one minute.
 * **Spider** allows you to ~~walk~~ crawl faster.
-* **Skeleton** allows you to shoot arrows 3x faster than normally for 1 minute.
+* **Skeleton** allows you to shoot arrows 2x faster than normally for 1 minute.
 * **Cave Spider** allows you to poison anybody you hit (Poison 1, for 20 seconds) for 1 minute.
 
 This way, when you kill a mob, none of its **energy** goes to waste - you are able to **harness it and reuse it** to continue doing what the mob was doing before... well, before the player came along and brutally murdered it :)
