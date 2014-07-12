@@ -1,5 +1,6 @@
 package com.tenjava.entries.DeprecatedNether.t2;
 
+import com.tenjava.entries.DeprecatedNether.t2.commands.MobPowersCommandHandler;
 import com.tenjava.entries.DeprecatedNether.t2.listeners.InteractEvent;
 import com.tenjava.entries.DeprecatedNether.t2.listeners.TJInventoryEvent;
 import com.tenjava.entries.DeprecatedNether.t2.listeners.KillEvent;
@@ -25,6 +26,7 @@ public class TenJava extends JavaPlugin {
                 getServer().getPluginManager().disablePlugin(this);
             }
         }
+        getCommand("mobpowers").setExecutor(new MobPowersCommandHandler(this));
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new InteractEvent(this), this);
         pm.registerEvents(new KillEvent(this), this);
