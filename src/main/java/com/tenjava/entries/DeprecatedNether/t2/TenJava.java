@@ -8,7 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class TenJava extends JavaPlugin {
 
-    MobPowersMethods methods;
+    public MobPowersMethods methods;
 
     @Override
     public void onEnable() {
