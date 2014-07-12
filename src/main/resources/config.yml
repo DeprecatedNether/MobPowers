@@ -47,6 +47,7 @@ powers:
     price: 15
     description: "Shoot arrows faster than normally."
     material: "arrow"
+statistics-material: redstone
 ignore-creative-kills: true
 disabled-worlds:
 - MobArena

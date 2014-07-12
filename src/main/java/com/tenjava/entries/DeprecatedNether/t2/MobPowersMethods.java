@@ -231,7 +231,7 @@ public class MobPowersMethods {
      * @return
      */
     public ItemStack craftStatisticsStack(HashMap<EntityType, Integer> data) {
-        ItemStack itemStack = new ItemStack(Material.REDSTONE, 1);
+        ItemStack itemStack = new ItemStack(Material.matchMaterial(main.getConfig().getString("statistics-material").replace(" ", " ")), 1);
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(ChatColor.GOLD + "MobPowers Statistics");
         List<String> lore = new ArrayList<String>();
