@@ -16,6 +16,7 @@ import org.bukkit.potion.PotionEffectType;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class MobPowersMethods {
 
     List<EntityType> mobs = new ArrayList<EntityType>();
     private TenJava main;
+    private HashMap<EntityType, String> descriptions = new HashMap<EntityType, String>();
 
     public MobPowersMethods(TenJava main) {
         this.main = main;
@@ -33,6 +35,13 @@ public class MobPowersMethods {
         mobs.add(EntityType.SQUID);
         mobs.add(EntityType.HORSE);
         mobs.add(EntityType.SPIDER);
+
+        descriptions.put(EntityType.CREEPER, "Create an explosion where you're standing.");
+        descriptions.put(EntityType.ENDERMAN, "Teleport to the block you're looking at.");
+        descriptions.put(EntityType.GHAST, "Shoot a fireball.");
+        descriptions.put(EntityType.SQUID, "Breathe underwater.");
+        descriptions.put(EntityType.HORSE, "Jump higher.");
+        descriptions.put(EntityType.SPIDER, "Crawl faster.");
     }
 
     /**
