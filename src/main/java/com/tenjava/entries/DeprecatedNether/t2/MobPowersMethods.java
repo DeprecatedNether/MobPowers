@@ -151,9 +151,7 @@ public class MobPowersMethods {
         HashMap<EntityType, Integer> tokenData = new HashMap<EntityType, Integer>();
         // +1 because we need to account for the statistics. / 2 because we need the same (or one more/less) air on both sides.
         // For example, if we have 4 mobs enabled, we'll need (9-(4+1)/2) = 2 airs on each side
-        System.out.println(mobs.size());
         int slot = (9 - (mobs.size() + 1)) / 2;
-        System.out.println(slot);
         for (EntityType mob : mobs) {
             int tokens = getTokens(player, mob);
             inventory.setItem(slot, craftStack(mob, tokens, getPrice(mob)));
