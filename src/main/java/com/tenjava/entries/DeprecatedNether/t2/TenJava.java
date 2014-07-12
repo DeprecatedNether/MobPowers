@@ -38,6 +38,6 @@ public class TenJava extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        methods.particles.cancel();
+        if (methods.particles != null) methods.particles.cancel();
     }
 }

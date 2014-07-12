@@ -54,7 +54,7 @@ public class MobPowersCommandHandler implements CommandExecutor {
                 return true;
             }
             main.reloadConfig();
-            main.methods.particles.cancel();
+            if (main.methods.particles != null) main.methods.particles.cancel();
             main.methods = new MobPowersMethods(main); // This reloads the materials/enabled mobs from the config, as well as restarts the particle task if need be
         }
         player.sendMessage(ChatColor.RED + "Invalid argument '" + args[0] + "', try '/mobpowers' or '/mobpowers wand'");
