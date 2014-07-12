@@ -25,6 +25,7 @@ public class MobPowersMethods {
     List<EntityType> mobs = new ArrayList<EntityType>();
     private TenJava main;
     private HashMap<EntityType, String> descriptions = new HashMap<EntityType, String>();
+    private HashMap<EntityType, Material> materials = new HashMap<EntityType, Material>();
 
     public MobPowersMethods(TenJava main) {
         this.main = main;
@@ -42,6 +43,13 @@ public class MobPowersMethods {
         descriptions.put(EntityType.SQUID, "Breathe underwater.");
         descriptions.put(EntityType.HORSE, "Jump higher.");
         descriptions.put(EntityType.SPIDER, "Crawl faster.");
+
+        materials.put(EntityType.CREEPER, Material.SULPHUR);
+        materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);
+        materials.put(EntityType.GHAST, Material.FIREBALL);
+        materials.put(EntityType.SQUID, Material.INK_SACK);
+        materials.put(EntityType.HORSE, Material.DIAMOND_BARDING);
+        materials.put(EntityType.SPIDER, Material.SPIDER_EYE);
     }
 
     /**
@@ -128,28 +136,7 @@ public class MobPowersMethods {
      * @param price The number of tokens the player needs.
      */
     public ItemStack craftStack(EntityType type, int tokens, int price) {
-        Material material = Material.AIR;
-        switch (type) {
-            case CREEPER:
-                material = Material.SULPHUR;
-                break;
-            case ENDERMAN:
-                material = Material.ENDER_PEARL;
-                break;
-            case GHAST:
-                material = Material.FIREBALL;
-                break;
-            case SQUID:
-                material = Material.INK_SACK;
-                break;
-            case HORSE:
-                material = Material.DIAMOND_BARDING;
-                break;
-            case SPIDER:
-                material = Material.SPIDER_EYE;
-                break;
-        }
-        ItemStack itemStack = new ItemStack(material, 1);
+        ItemStack itemStack = new ItemStack(materials.get(type), 1);
         ItemMeta meta = itemStack.getItemMeta();
         List<String> lore = new ArrayList<String>();
         meta.setDisplayName(ChatColor.DARK_GREEN + type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1)); // Turn "ENDERMAN" into "Enderman"
