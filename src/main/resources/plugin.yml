@@ -7,5 +7,7 @@ commands:
 permissions:
   mobpowers.use:
     description: Grants access to all things MobPowers.
+    default: true
   mobpowers.wand:
     description: Allow the player to get the MobPowers wand.
+    default: op
