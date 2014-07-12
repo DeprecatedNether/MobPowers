@@ -86,6 +86,7 @@ public class MobPowersMethods {
      * @param entity
      * @return
      */
+    @SuppressWarnings("deprecation")
     public boolean useSuperPower(Player player, EntityType entity) {
         if (!takeToken(player, entity)) return false;
         switch (entity) {
