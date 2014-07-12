@@ -134,6 +134,7 @@ public class MobPowersMethods {
             tokenData.put(mob, tokens);
         }
         inventory.addItem(craftStatisticsStack(tokenData));
+        player.openInventory(inventory);
     }
 
     public int getPrice(EntityType type) {
