@@ -282,7 +282,7 @@ public class MobPowersMethods {
     }
 
     /**
-     * Checks if the player has Skeleton attack, ie. shoots arrows 3x faster.
+     * Checks if the player has Skeleton attack, ie. shoots arrows 2x faster.
      * @param player The player.
      * @return True if yes, false if no.
      */

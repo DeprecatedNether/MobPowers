@@ -19,7 +19,7 @@ public class SkeletonShoot implements Listener {
             return;
         }
         if (main.methods.hasSkeletonAttack((Player) e.getEntity())) {
-            e.getProjectile().setVelocity(e.getProjectile().getVelocity().multiply(3));
+            e.getProjectile().setVelocity(e.getProjectile().getVelocity().multiply(2));
         }
     }
 }
