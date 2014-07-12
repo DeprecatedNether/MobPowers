@@ -49,8 +49,8 @@ public class MobPowersMethods {
         descriptions.put(EntityType.SQUID, "Breathe underwater.");
         descriptions.put(EntityType.HORSE, "Jump higher or run faster... you never know!");
         descriptions.put(EntityType.SPIDER, "Crawl faster.");
-        descriptions.put(EntityType.CAVE_SPIDER, "Make your bite worse than your bark - give players poison when you hit them.");
-        descriptions.put(EntityType.SKELETON, "We told Mojang to nerf the insanely fast-shooting skeletons, but they didn't listen!");
+        descriptions.put(EntityType.CAVE_SPIDER, "Poison players you hit.");
+        descriptions.put(EntityType.SKELETON, "Remember how Mojang made OP skeletons that shot way too fast?");
 
         materials.put(EntityType.CREEPER, Material.SULPHUR);
         materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);
