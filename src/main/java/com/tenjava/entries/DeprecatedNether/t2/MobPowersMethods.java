@@ -107,13 +107,13 @@ public class MobPowersMethods {
                 player.launchProjectile(Fireball.class);
                 break;
             case SQUID:
-                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60, 1, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*2, 1, true));
                 break;
             case HORSE:
-                player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 60, 2, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 60*20, 2, true));
                 break;
             case SPIDER:
-                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60, 2, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
                 break;
         }
         return true;
