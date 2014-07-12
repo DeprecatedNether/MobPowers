@@ -20,6 +20,7 @@ public class TJInventoryEvent implements Listener {
     public void interact(InventoryClickEvent e) {
         if (!e.getInventory().getTitle().equals("MobPowers Selector")) return;
         if (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR) return;
+        e.setCancelled(true);
         EntityType type = main.methods.materialToEntityType(e.getCurrentItem().getType());
         if (type == null) return;
         main.methods.useSuperPower((Player)e.getWhoClicked(), type);
