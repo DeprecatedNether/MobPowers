@@ -147,6 +147,15 @@ public class MobPowersMethods {
         return itemStack;
     }
 
+    public EntityType materialToEntityType(Material material) {
+        for (EntityType type : materials.keySet()) {
+            if (materials.get(type) == material) {
+                return type;
+            }
+        }
+        return null;
+    }
+
     /**
      * Gets the number of tokens that player has for that particular mob.
      * @param player The player.
