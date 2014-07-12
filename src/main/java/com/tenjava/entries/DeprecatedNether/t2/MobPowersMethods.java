@@ -28,6 +28,8 @@ public class MobPowersMethods {
     private TenJava main;
     private HashMap<EntityType, String> descriptions = new HashMap<EntityType, String>();
     private HashMap<EntityType, Material> materials = new HashMap<EntityType, Material>();
+    private HashMap<String, Long> skeletons = new HashMap<String, Long>();
+    private HashMap<String, Long> spiders = new HashMap<String, Long>();
 
     public MobPowersMethods(TenJava main) {
         this.main = main;
@@ -139,6 +141,12 @@ public class MobPowersMethods {
                 player.removePotionEffect(PotionEffectType.SPEED);
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
                 break;
+            case CAVE_SPIDER:
+                spiders.put(player.getName(), System.currentTimeMillis()+60000);
+                break;
+            case SKELETON:
+                skeletons.put(player.getName(), System.currentTimeMillis()+60000);
+                break;
         }
         player.sendMessage(ChatColor.GREEN + "Enjoy your " + name + " powers!");
         return true;
@@ -247,5 +255,29 @@ public class MobPowersMethods {
             ioe.printStackTrace();
             return false;
         }
+    }
+
+    /**
+     * Checks if the player has Spider attack, ie. gives Poison to anybody they hit.
+     * @param player The player.
+     * @return True if yes, false if no.
+     */
+    public boolean hasCaveSpiderAttack(Player player) {
+        if (!spiders.containsKey(player.getName())) return false;
+        if (spiders.get(player.getName()) <= System.currentTimeMillis()) return true;
+        spiders.remove(player.getName());
+        return false;
+    }
+
+    /**
+     * Checks if the player has Skeleton attack, ie. shoots arrows 3x faster.
+     * @param player The player.
+     * @return True if yes, false if no.
+     */
+    public boolean hasSkeletonAttack(Player player) {
+        if (!skeletons.containsKey(player.getName())) return false;
+        if (skeletons.get(player.getName()) <= System.currentTimeMillis()) return true;
+        skeletons.remove(player.getName());
+        return false;
     }
 }
