@@ -89,13 +89,17 @@ public class MobPowersMethods {
 
     /**
      * Applies the mob power to the player.
-     * @param player
-     * @param entity
+     * @param player The player.
+     * @param entity The mob whose powers they should get.
      * @return
      */
     @SuppressWarnings("deprecation")
     public boolean useSuperPower(Player player, EntityType entity) {
-        if (!takeToken(player, entity)) return false;
+        String name = getEntityName(entity);
+        if (!takeToken(player, entity)) {
+            player.sendMessage(ChatColor.RED + "You do not have enough " + name + " tokens to get " + name + " powers.");
+            return false;
+        }
         switch (entity) {
             case CREEPER:
                 player.getWorld().createExplosion(player.getLocation(), 5);
@@ -121,6 +125,7 @@ public class MobPowersMethods {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
                 break;
         }
+        player.sendMessage(ChatColor.GREEN + "Enjoy your " + name + " powers!");
         return true;
     }
 
