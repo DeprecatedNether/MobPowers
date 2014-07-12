@@ -135,14 +135,15 @@ public class MobPowersMethods {
      */
     public void openGUI(Player player) {
         Inventory inventory = main.getServer().createInventory(player, 9, "MobPowers Selector");
-        inventory.addItem(new ItemStack(Material.AIR));
         HashMap<EntityType, Integer> tokenData = new HashMap<EntityType, Integer>();
+        int slot = 1;
         for (EntityType mob : mobs) {
             int tokens = getTokens(player, mob);
-            inventory.addItem(craftStack(mob, tokens, getPrice(mob)));
+            inventory.setItem(slot, craftStack(mob, tokens, getPrice(mob)));
             tokenData.put(mob, tokens);
+            slot++;
         }
-        inventory.addItem(craftStatisticsStack(tokenData));
+        inventory.setItem(slot, craftStatisticsStack(tokenData));
         player.openInventory(inventory);
     }
 
