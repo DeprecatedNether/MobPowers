@@ -32,12 +32,12 @@ public class MobPowersMethods {
     public MobPowersMethods(TenJava main) {
         this.main = main;
         // load mobs we have superpowers for
-        mobs.add(EntityType.CREEPER);
-        mobs.add(EntityType.ENDERMAN);
-        mobs.add(EntityType.GHAST);
-        mobs.add(EntityType.SQUID);
-        mobs.add(EntityType.HORSE);
-        mobs.add(EntityType.SPIDER);
+        if (isPowerEnabled(EntityType.CREEPER)) mobs.add(EntityType.CREEPER);
+        if (isPowerEnabled(EntityType.ENDERMAN)) mobs.add(EntityType.ENDERMAN);
+        if (isPowerEnabled(EntityType.GHAST)) mobs.add(EntityType.GHAST);
+        if (isPowerEnabled(EntityType.SQUID)) mobs.add(EntityType.SQUID);
+        if (isPowerEnabled(EntityType.HORSE)) mobs.add(EntityType.HORSE);
+        if (isPowerEnabled(EntityType.SPIDER)) mobs.add(EntityType.SPIDER);
 
         descriptions.put(EntityType.CREEPER, "Create an explosion where you're standing.");
         descriptions.put(EntityType.ENDERMAN, "Teleport to the block you're looking at.");
