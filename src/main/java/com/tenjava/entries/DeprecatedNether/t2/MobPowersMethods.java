@@ -147,6 +147,19 @@ public class MobPowersMethods {
         return itemStack;
     }
 
+    public ItemStack craftStatisticsStack(HashMap<EntityType, Integer> data) {
+        ItemStack itemStack = new ItemStack(Material.REDSTONE, 1);
+        ItemMeta meta = itemStack.getItemMeta();
+        meta.setDisplayName(ChatColor.GOLD + "MobPowers Statistics");
+        List<String> lore = new ArrayList<String>();
+        for (EntityType type : data.keySet()) {
+            lore.add(ChatColor.RED + type.toString() + " Tokens: " + ChatColor.GOLD + data.get(type));
+        }
+        meta.setLore(lore);
+        itemStack.setItemMeta(meta);
+        return itemStack;
+    }
+
     public EntityType materialToEntityType(Material material) {
         for (EntityType type : materials.keySet()) {
             if (materials.get(type) == material) {
