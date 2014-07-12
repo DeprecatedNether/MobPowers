@@ -49,5 +49,6 @@ powers:
     material: "arrow"
 statistics-material: redstone
 ignore-creative-kills: true
+show-particles: false
 disabled-worlds:
 - MobArena

@@ -143,17 +143,17 @@ public class MobPowersMethods {
                 break;
             case SQUID:
                 player.removePotionEffect(PotionEffectType.WATER_BREATHING);
-                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*20, 1, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*20, 1, main.getConfig().getBoolean("show-particles")));
                 break;
             case HORSE:
                 Random random = new Random();
                 PotionEffectType type = random.nextInt(2) == 1 ? PotionEffectType.JUMP : PotionEffectType.SPEED;
                 player.removePotionEffect(type);
-                player.addPotionEffect(new PotionEffect(type, 60*20, random.nextInt(2)+1, true));
+                player.addPotionEffect(new PotionEffect(type, 60*20, random.nextInt(2)+1, main.getConfig().getBoolean("show-particles")));
                 break;
             case SPIDER:
                 player.removePotionEffect(PotionEffectType.SPEED);
-                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, main.getConfig().getBoolean("show-particles")));
                 break;
             case CAVE_SPIDER:
                 spiders.put(player.getName(), System.currentTimeMillis()+60000);
