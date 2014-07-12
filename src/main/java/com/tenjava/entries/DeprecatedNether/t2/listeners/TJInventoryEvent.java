@@ -2,10 +2,11 @@ package com.tenjava.entries.DeprecatedNether.t2.listeners;
 
 import com.tenjava.entries.DeprecatedNether.t2.TenJava;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class TJInventoryEvent implements Listener {
     private TenJava main;
@@ -18,5 +19,6 @@ public class TJInventoryEvent implements Listener {
     public void interact(InventoryClickEvent e) {
         if (!e.getInventory().getTitle().equals("MobPowers Selector")) return;
         if (e.getCurrentItem() == null || e.getCurrentItem().getType() == Material.AIR) return;
+        main.methods.useSuperPower((Player)e.getWhoClicked(), main.methods.materialToEntityType(e.getCurrentItem().getType()));
     }
 }
