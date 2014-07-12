@@ -78,7 +78,6 @@ public class MobPowersMethods {
      * @return True if all good, false if fail (player doesn't have enough coins)
      */
     public boolean takeToken(Player player, EntityType entity) {
-        if (mobs.contains(entity)) return false;
         FileConfiguration fileConfiguration = getPlayersFile();
         if (!fileConfiguration.isInt(player.getName() + "." + entity.toString().toLowerCase())) return false; // Haven't killed this entity yet
         int tokens = fileConfiguration.getInt(player.getName() + "." + entity.toString().toLowerCase());
