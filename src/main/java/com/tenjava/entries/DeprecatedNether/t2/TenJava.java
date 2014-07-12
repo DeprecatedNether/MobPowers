@@ -7,6 +7,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TenJava extends JavaPlugin {
+
+    MobPowersMethods methods;
+
     @Override
     public void onEnable() {
         PluginManager pm = getServer().getPluginManager();
@@ -14,5 +17,6 @@ public class TenJava extends JavaPlugin {
         pm.registerEvents(new KillEvent(this), this);
         pm.registerEvents(new TJInventoryEvent(this), this);
         saveDefaultConfig();
+        this.methods = new MobPowersMethods(this);
     }
 }
