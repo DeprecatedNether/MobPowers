@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class TJInventoryEvent implements Listener {
     private TenJava main;
@@ -22,6 +23,13 @@ public class TJInventoryEvent implements Listener {
         e.setCancelled(true);
         EntityType type = main.methods.materialToEntityType(e.getCurrentItem().getType());
         if (type == null) return;
-        main.methods.useSuperPower((Player)e.getWhoClicked(), type);
+        final Player player = (Player) e.getWhoClicked();
+        main.methods.useSuperPower(player, type);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                player.closeInventory();
+            }
+        }.runTaskLater(main, 1);
     }
 }
