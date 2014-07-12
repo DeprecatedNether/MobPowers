@@ -183,7 +183,7 @@ public class MobPowersMethods {
         int slot = (9 - (mobs.size() + 1)) / 2;
         for (EntityType mob : mobs) {
             int tokens = getTokens(player, mob);
-            inventory.setItem(slot, craftStack(mob, tokens, getPrice(mob)));
+            inventory.setItem(slot, craftStack(mob, tokens, getPrice(mob), player.hasPermission("mobpowers.use." + mob.toString().toLowerCase().replace("_", ""))));
             tokenData.put(mob, tokens);
             slot++;
         }
@@ -201,13 +201,17 @@ public class MobPowersMethods {
      * @param tokens The number of tokens the player has.
      * @param price The number of tokens the player needs.
      */
-    public ItemStack craftStack(EntityType type, int tokens, int price) {
+    public ItemStack craftStack(EntityType type, int tokens, int price, boolean hasPermission) {
         ItemStack itemStack = new ItemStack(materials.get(type), 1);
         ItemMeta meta = itemStack.getItemMeta();
         List<String> lore = new ArrayList<String>();
         meta.setDisplayName(ChatColor.DARK_GREEN + getEntityName(type)); // Turn "ENDERMAN" into "Enderman"
-        lore.add(ChatColor.GREEN + descriptions.get(type));
-        lore.add(ChatColor.GOLD + "Price: " + (tokens < price ? ChatColor.RED : ChatColor.GREEN) + price);
+        if (hasPermission) {
+            lore.add(ChatColor.GREEN + descriptions.get(type));
+            lore.add(ChatColor.GOLD + "Price: " + (tokens < price ? ChatColor.RED : ChatColor.GREEN) + price);
+        } else {
+            lore.add(ChatColor.DARK_RED + "No permission");
+        }
         meta.setLore(lore);
         itemStack.setItemMeta(meta);
         return itemStack;
