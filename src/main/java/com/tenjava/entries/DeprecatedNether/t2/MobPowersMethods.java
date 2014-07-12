@@ -212,7 +212,7 @@ public class MobPowersMethods {
     }
 
     public String getEntityName(EntityType type) {
-        return type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1);
+        return type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1).replace("_", " ");
     }
 
     public EntityType materialToEntityType(Material material) {
