@@ -50,7 +50,7 @@ public class MobPowersMethods {
         descriptions.put(EntityType.HORSE, "Jump higher or run faster... you never know!");
         descriptions.put(EntityType.SPIDER, "Crawl faster.");
         descriptions.put(EntityType.CAVE_SPIDER, "Poison players you hit.");
-        descriptions.put(EntityType.SKELETON, "Remember how Mojang made OP skeletons that shot way too fast?");
+        descriptions.put(EntityType.SKELETON, "Shoot arrows faster than normally.");
 
         materials.put(EntityType.CREEPER, Material.SULPHUR);
         materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);
