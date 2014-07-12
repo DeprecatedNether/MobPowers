@@ -67,7 +67,7 @@ public class MobPowersMethods {
             return false;
         }
         FileConfiguration fileConfiguration = getPlayersFile();
-        fileConfiguration.set(player.getName() + "." + entity.toString().toLowerCase(), 1);
+        fileConfiguration.set(player.getName() + "." + entity.toString().toLowerCase(), fileConfiguration.getInt(player.getName() + "." + entity.toString().toLowerCase()) + 1);
         return savePlayersFile(fileConfiguration);
     }
 
