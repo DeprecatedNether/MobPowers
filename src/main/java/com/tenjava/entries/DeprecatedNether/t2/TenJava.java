@@ -1,9 +1,7 @@
 package com.tenjava.entries.DeprecatedNether.t2;
 
 import com.tenjava.entries.DeprecatedNether.t2.commands.MobPowersCommandHandler;
-import com.tenjava.entries.DeprecatedNether.t2.listeners.InteractEvent;
-import com.tenjava.entries.DeprecatedNether.t2.listeners.TJInventoryEvent;
-import com.tenjava.entries.DeprecatedNether.t2.listeners.KillEvent;
+import com.tenjava.entries.DeprecatedNether.t2.listeners.*;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,6 +29,8 @@ public class TenJava extends JavaPlugin {
         pm.registerEvents(new InteractEvent(this), this);
         pm.registerEvents(new KillEvent(this), this);
         pm.registerEvents(new TJInventoryEvent(this), this);
+        pm.registerEvents(new SkeletonShoot(this), this);
+        pm.registerEvents(new SpiderPVP(this), this);
         saveDefaultConfig();
         this.methods = new MobPowersMethods(this);
     }
