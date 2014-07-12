@@ -72,6 +72,7 @@ public class MobPowersMethods {
             return false;
         }
         if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld().getName())) return false;
+        if (player.hasPermission("mobpowers.use." + entity.toString().toLowerCase().replace("_", ""))) return false;
         Random random = new Random();
         int chance = main.getConfig().getInt("powers." + entity.toString().toLowerCase() + ".drop-chance");
         if (random.nextInt(100) + 1 > chance) { // gives us a number between 1 and 100. If it's less than or equal to "chance", do something. Larger the chance, more likely this will happen
@@ -107,6 +108,10 @@ public class MobPowersMethods {
      */
     @SuppressWarnings("deprecation")
     public boolean useSuperPower(Player player, EntityType entity) {
+        if (player.hasPermission("mobpowers.use." + entity.toString().toLowerCase().replace("_", ""))) {
+            player.sendMessage(ChatColor.RED + "You don't have access to this MobPower.");
+            return false;
+        }
         if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld().getName())) {
             player.sendMessage(ChatColor.RED + "MobPowers are disabled in this world.");
             return false;
