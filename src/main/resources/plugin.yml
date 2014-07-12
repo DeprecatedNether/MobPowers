@@ -1,3 +1,9 @@
 name: DeprecatedNether-t2
 main: com.tenjava.entries.DeprecatedNether.t2.TenJava
 version: '${project.version}'
+commands:
+  mobpowers:
+    description: Base MobPowers command.
+permissions:
+  mobpowers.use:
+    description: Grants access to all things MobPowers.
