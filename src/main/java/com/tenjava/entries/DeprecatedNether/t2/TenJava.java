@@ -35,4 +35,9 @@ public class TenJava extends JavaPlugin {
         saveDefaultConfig();
         this.methods = new MobPowersMethods(this);
     }
+
+    @Override
+    public void onDisable() {
+        methods.particles.cancel();
+    }
 }
