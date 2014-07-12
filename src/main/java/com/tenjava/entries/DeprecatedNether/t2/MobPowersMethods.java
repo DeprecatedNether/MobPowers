@@ -60,7 +60,21 @@ public class MobPowersMethods {
      * @return True if all good, false if fail (player doesn't have enough coins)
      */
     public boolean takeToken(Player player, EntityType entity) {
-        return false;
+        if (mobs.contains(entity)) return false;
+        File file = new File(main.getDataFolder(), "players.yml");
+        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+        if (!fileConfiguration.isInt(player.getName() + "." + entity.toString().toLowerCase())) return false; // Haven't killed this entity yet
+        int tokens = fileConfiguration.getInt(player.getName() + "." + entity.toString().toLowerCase());
+        int price = main.getConfig().getInt("powers." + entity.toString().toLowerCase() + ".price");
+        if (tokens < price) return false;
+        fileConfiguration.set(player.getName() + "." + entity.toString().toLowerCase(), tokens-price);
+        try {
+            fileConfiguration.save(file);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     /**
