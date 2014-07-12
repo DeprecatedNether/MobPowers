@@ -13,12 +13,42 @@ public class MobPowersMethods {
 
     }
 
+    /**
+     * Takes enough tokens from the player to use the mob power.
+     * @param player The player.
+     * @param entity The mob.
+     * @return True if all good, false if fail (player doesn't have enough coins)
+     */
     public boolean takeToken(Player player, EntityType entity) {
         return false;
     }
 
+    /**
+     * Applies the mob power to the player.
+     * @param player
+     * @param entity
+     * @return
+     */
     public boolean useSuperPower(Player player, EntityType entity) {
         if (!takeToken(player, entity)) return false;
         return false;
+    }
+
+    /**
+     * Opens the GUI for the player.
+     * @param player The player.
+     */
+    public void openGUI(Player player) {
+
+    }
+
+    /**
+     * Gets the number of tokens that player has for that particular mob.
+     * @param player The player.
+     * @param entity The mob.
+     * @return The number of tokens.
+     */
+    public int getTokens(Player player, EntityType entity) {
+        return 0;
     }
 }
