@@ -136,6 +136,10 @@ public class MobPowersMethods {
         inventory.addItem(craftStatisticsStack(tokenData));
     }
 
+    public int getPrice(EntityType type) {
+        return main.getConfig().getInt("powers." + type.toString().toLowerCase() + ".price");
+    }
+
     /**
      * Gets the item for a particular mob.
      * @param type The entity.
