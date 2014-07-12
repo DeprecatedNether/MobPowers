@@ -311,9 +311,7 @@ public class MobPowersMethods {
      * @return True if yes, false if no.
      */
     public boolean hasCaveSpiderAttack(Player player) {
-        System.out.println(1);
         if (!spiders.containsKey(player.getName())) return false;
-        System.out.println(2);
         if (spiders.get(player.getName()) >= System.currentTimeMillis()) return true;
         spiders.remove(player.getName());
         return false;
