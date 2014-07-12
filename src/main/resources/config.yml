@@ -1,0 +1,25 @@
+powers:
+  creeper:
+    enabled: true
+    drop-chance: 50
+    price: 5
+  enderman:
+    enabled: true
+    drop-chance: 50
+    price: 5
+  ghast:
+    enabled: true
+    drop-chance: 50
+    price: 5
+  squid:
+    enabled: true
+    drop-chance: 50
+    price: 5
+  horse:
+    enabled: true
+    drop-chance: 50
+    price: 5
+  spider:
+    enabled: true
+    drop-chance: 50
+    price: 5

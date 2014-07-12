@@ -13,5 +13,6 @@ public class TenJava extends JavaPlugin {
         pm.registerEvents(new InteractEvent(this), this);
         pm.registerEvents(new KillEvent(this), this);
         pm.registerEvents(new TJInventoryEvent(this), this);
+        saveDefaultConfig();
     }
 }
