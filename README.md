@@ -44,7 +44,22 @@ Mob powers:
 
 This way, when you kill a mob, none of its **energy** goes to waste - you are able to **harness it and reuse it** to continue doing what the mob was doing before... well, before the player came along and brutally murdered it :)
 
+Configuration
+-------------
+
 In the configuration file, you may choose to configure certain settings for each mob power:
 * **enabled** allows you to enable or disable that power.
 * **drop-chance** allows you to set a percentage chance of the drop. For example, if you set this to 50, on average every other mob of the same type will give you a token.
 * **price** specifies how many tokens you need to be able to activate the mob's power.
+
+The following can also be configured:
+* **ignore-creative-kills** - Choose whether to ignore kills made by players that were, at the time, in Creative mode.
+* **disabled-worlds** - Do not allow players to gain or use MobPowers tokens in these worlds.
+
+Permissions
+-----------
+
+The plugin uses the following permission nodes:
+* **mobpowers.use**: Allow the player to gain tokens for killing mobs and use those tokens. *Default: all players*
+* **mobpowers.use.<mob name>**: Allow the player to gain and use tokens for this specific mob (this is automatically true if the player has the permission node `mobpowers.use` - use this only if you want the player to have access to only specific mob powers or want to negate the permission). *Default: all players*
+* **mobpowers.wand**: Allows the player to use `/mobpowers wand` which gives them a special stick. *Default: operators only*
