@@ -58,6 +58,7 @@ The following can also be configured:
 * **ignore-creative-kills** - Choose whether to ignore kills made by players that were, at the time, in Creative mode.
 * **disabled-worlds** - Do not allow players to gain or use MobPowers tokens in these worlds.
 * **statistics-material** - The material that shows the player's statistics in the user interface. This must be a valid [Material](http://jd.bukkit.org/beta/apidocs/org/bukkit/Material.html) - however it does not have to be all UPPERCASE and the underscores can be replaced with spaces. For example, "redstone ore" and "redstone_ore" would be valid whereas "redstoneore" would not be.
+* **show-particles** -
 
 Permissions
 -----------
