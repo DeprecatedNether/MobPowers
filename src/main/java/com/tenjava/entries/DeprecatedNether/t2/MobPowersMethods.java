@@ -130,7 +130,7 @@ public class MobPowersMethods {
         HashMap<EntityType, Integer> tokenData = new HashMap<EntityType, Integer>();
         for (EntityType mob : mobs) {
             int tokens = getTokens(player, mob);
-            inventory.addItem(craftStack(mob, tokens, 0));
+            inventory.addItem(craftStack(mob, tokens, getPrice(mob)));
             tokenData.put(mob, tokens);
         }
         inventory.addItem(craftStatisticsStack(tokenData));
