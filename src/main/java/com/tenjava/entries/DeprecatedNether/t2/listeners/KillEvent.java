@@ -43,7 +43,7 @@ public class KillEvent implements Listener {
         Player killer = main.getServer().getPlayer(uuid);
         if (killer == null) return;
         if (main.methods.giveToken(killer, e.getEntityType())) {
-            killer.sendMessage(ChatColor.GOLD + "You earned one " + e.getEntityType().toString().toLowerCase() + " token.");
+            killer.sendMessage(ChatColor.GOLD + "You earned one " + main.methods.getEntityName(e.getEntityType()) + " token.");
         }
         lastDamage.remove(e.getEntity().getUniqueId());
     }
