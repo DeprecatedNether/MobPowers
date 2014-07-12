@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import sun.management.resources.agent;
 
 import java.io.File;
 import java.io.IOException;
@@ -167,6 +168,7 @@ public class MobPowersMethods {
         ItemMeta meta = itemStack.getItemMeta();
         List<String> lore = new ArrayList<String>();
         meta.setDisplayName(ChatColor.DARK_GREEN + type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1)); // Turn "ENDERMAN" into "Enderman"
+        lore.add(ChatColor.RED + descriptions.get(type));
         lore.add(ChatColor.GOLD + "Price: " + (tokens < price ? ChatColor.RED : ChatColor.GREEN) + price);
         meta.setLore(lore);
         itemStack.setItemMeta(meta);
