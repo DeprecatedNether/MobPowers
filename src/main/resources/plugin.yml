@@ -8,6 +8,39 @@ permissions:
   mobpowers.use:
     description: Grants access to all things MobPowers.
     default: true
+    children:
+      mobpowers.use.creeper: true
+      mobpowers.use.enderman: true
+      mobpowers.use.ghast: true
+      mobpowers.use.squid: true
+      mobpowers.use.horse: true
+      mobpowers.use.spider: true
+      mobpowers.use.cavespider: true
+      mobpowers.use.skeleton: true
+  mobpowers.use.creeper:
+    default: true
+    description: Grants access to creeper-related tokens.
+  mobpowers.use.enderman:
+      default: true
+      description: Grants access to enderman-related tokens.
+  mobpowers.use.ghast:
+      default: true
+      description: Grants access to ghast-related tokens.
+  mobpowers.use.squid:
+      default: true
+      description: Grants access to squid-related tokens.
+  mobpowers.use.horse:
+      default: true
+      description: Grants access to horse-related tokens.
+  mobpowers.use.spider:
+      default: true
+      description: Grants access to spider-related tokens.
+  mobpowers.use.cavespider:
+      default: true
+      description: Grants access to cave spider-related tokens.
+  mobpowers.use.skeleton:
+      default: true
+      description: Grants access to skeleton-related tokens.
   mobpowers.wand:
     description: Allow the player to get the MobPowers wand.
     default: op

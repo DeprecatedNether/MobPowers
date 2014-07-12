@@ -61,5 +61,5 @@ Permissions
 
 The plugin uses the following permission nodes:
 * **mobpowers.use**: Allow the player to gain tokens for killing mobs and use those tokens. *Default: all players*
-* **mobpowers.use.<mob name>**: Allow the player to gain and use tokens for this specific mob (this is automatically true if the player has the permission node `mobpowers.use` - use this only if you want the player to have access to only specific mob powers or want to negate the permission). *Default: all players*
+* **mobpowers.use.<mob name>**: Allow the player to gain and use tokens for this specific mob (this is automatically true if the player has the permission node `mobpowers.use` - use this only if you want the player to have access to only specific mob powers or want to negate the permission). For mobs whose names consist of several words (cave spider), use `cavespider`. *Default: all players*
 * **mobpowers.wand**: Allows the player to use `/mobpowers wand` which gives them a special stick. *Default: operators only*
