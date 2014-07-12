@@ -27,7 +27,7 @@ public class KillEvent implements Listener {
             return;
         }
         if (!(e.getDamager() instanceof Player)) {
-
+            return;
         }
         lastDamage.put(e.getEntity().getUniqueId(), e.getDamager().getUniqueId());
     }
