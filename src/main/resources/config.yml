@@ -2,32 +2,32 @@ powers:
   creeper:
     enabled: true
     drop-chance: 50
-    price: 5
+    price: 10
   enderman:
     enabled: true
-    drop-chance: 50
+    drop-chance: 80
     price: 5
   ghast:
     enabled: true
-    drop-chance: 50
-    price: 5
+    drop-chance: 90
+    price: 3
   squid:
     enabled: true
-    drop-chance: 50
+    drop-chance: 20
     price: 5
   horse:
     enabled: true
-    drop-chance: 50
-    price: 5
+    drop-chance: 30
+    price: 10
   spider:
     enabled: true
-    drop-chance: 50
-    price: 5
+    drop-chance: 30
+    price: 10
   cave_spider:
     enabled: true
-    drop-chance: 50
+    drop-chance: 60
     price: 5
   skeleton:
     enabled: true
-    drop-chance: 50
-    price: 5
+    drop-chance: 20
+    price: 15
