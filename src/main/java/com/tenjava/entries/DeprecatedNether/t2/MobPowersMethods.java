@@ -138,6 +138,10 @@ public class MobPowersMethods {
         return true;
     }
 
+    public boolean isPowerEnabled(EntityType type) {
+        return main.getConfig().getBoolean("powers." + type.toString().toLowerCase() + ".enabled");
+    }
+
     /**
      * Opens the GUI for the player.
      * @param player The player.
