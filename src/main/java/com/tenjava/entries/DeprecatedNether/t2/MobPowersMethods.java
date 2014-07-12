@@ -1,10 +1,15 @@
 package com.tenjava.entries.DeprecatedNether.t2;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -117,7 +122,46 @@ public class MobPowersMethods {
      * @param player The player.
      */
     public void openGUI(Player player) {
+        Inventory inventory = main.getServer().createInventory(player, 9, "MobPowers Selector");
 
+    }
+
+    /**
+     * Gets the item for a particular mob.
+     * @param type The entity.
+     * @param tokens The number of tokens the player has.
+     * @param price The number of tokens the player needs.
+     */
+    public ItemStack craftStack(EntityType type, int tokens, int price) {
+        Material material = Material.AIR;
+        switch (type) {
+            case CREEPER:
+                material = Material.SULPHUR;
+                break;
+            case ENDERMAN:
+                material = Material.ENDER_PEARL;
+                break;
+            case GHAST:
+                material = Material.FIREBALL;
+                break;
+            case SQUID:
+                material = Material.INK_SACK;
+                break;
+            case HORSE:
+                material = Material.DIAMOND_BARDING;
+                break;
+            case SPIDER:
+                material = Material.SPIDER_EYE;
+                break;
+        }
+        ItemStack itemStack = new ItemStack(material, 1);
+        ItemMeta meta = itemStack.getItemMeta();
+        List<String> lore = new ArrayList<String>();
+        meta.setDisplayName(ChatColor.DARK_GREEN + type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1)); // Turn "ENDERMAN" into "Enderman"
+        lore.add(ChatColor.GOLD + "Price: " + (tokens < price ? ChatColor.RED : ChatColor.GREEN) + price);
+        meta.setLore(lore);
+        itemStack.setItemMeta(meta);
+        return itemStack;
     }
 
     /**
