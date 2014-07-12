@@ -31,6 +31,10 @@ public class MobPowersCommandHandler implements CommandExecutor {
             return true;
         }
         if (args[0].equalsIgnoreCase("wand")) {
+            if (!sender.hasPermission("mobpowers.wand")) {
+                sender.sendMessage(ChatColor.RED + "No access.");
+                return true;
+            }
             ItemStack wand = new ItemStack(Material.STICK, 1);
             wand.setDurability((byte)2); // We'll use durability for identifying
             ItemMeta meta = wand.getItemMeta();
