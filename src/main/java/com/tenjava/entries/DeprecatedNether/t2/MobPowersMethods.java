@@ -263,8 +263,10 @@ public class MobPowersMethods {
      * @return True if yes, false if no.
      */
     public boolean hasCaveSpiderAttack(Player player) {
+        System.out.println(1);
         if (!spiders.containsKey(player.getName())) return false;
-        if (spiders.get(player.getName()) <= System.currentTimeMillis()) return true;
+        System.out.println(2);
+        if (spiders.get(player.getName()) >= System.currentTimeMillis()) return true;
         spiders.remove(player.getName());
         return false;
     }
@@ -276,7 +278,7 @@ public class MobPowersMethods {
      */
     public boolean hasSkeletonAttack(Player player) {
         if (!skeletons.containsKey(player.getName())) return false;
-        if (skeletons.get(player.getName()) <= System.currentTimeMillis()) return true;
+        if (skeletons.get(player.getName()) >= System.currentTimeMillis()) return true;
         skeletons.remove(player.getName());
         return false;
     }
