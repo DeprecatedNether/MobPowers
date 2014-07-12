@@ -43,6 +43,7 @@ public class MobPowersMethods {
         if (isPowerEnabled(EntityType.CAVE_SPIDER)) mobs.add(EntityType.CAVE_SPIDER);
         if (isPowerEnabled(EntityType.SKELETON)) mobs.add(EntityType.SKELETON);
 
+        // load descriptions
         descriptions.put(EntityType.CREEPER, main.getConfig().getString("powers.creeper.description"));
         descriptions.put(EntityType.ENDERMAN, main.getConfig().getString("powers.enderman.description"));
         descriptions.put(EntityType.GHAST, main.getConfig().getString("powers.ghast.description"));
@@ -52,6 +53,7 @@ public class MobPowersMethods {
         descriptions.put(EntityType.CAVE_SPIDER, main.getConfig().getString("powers.cave_spider.description"));
         descriptions.put(EntityType.SKELETON, main.getConfig().getString("powers.skeleton.description"));
 
+        // load materials
         materials.put(EntityType.CREEPER, Material.SULPHUR);
         materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);
         materials.put(EntityType.GHAST, Material.FIREBALL);
@@ -65,7 +67,8 @@ public class MobPowersMethods {
     /**
      * Gives the player a token for killing a mob based on the percentage set in the config.
      * For example, if the entity type's drop chance is set to 0, this will never do anything.
-     * @param entity
+     * @param player The player.
+     * @param entity The mob.
      */
     public boolean giveToken(Player player, EntityType entity) {
         if (!mobs.contains(entity)) {
@@ -104,7 +107,7 @@ public class MobPowersMethods {
      * Applies the mob power to the player.
      * @param player The player.
      * @param entity The mob whose powers they should get.
-     * @return
+     * @return True if successful, false if not.
      */
     @SuppressWarnings("deprecation")
     public boolean useSuperPower(Player player, EntityType entity) {
@@ -163,13 +166,18 @@ public class MobPowersMethods {
         return true;
     }
 
+    /**
+     * Checks if a mobpower is enabled.
+     * @param type The entity.
+     * @return True if enabled, false if not.
+     */
     public boolean isPowerEnabled(EntityType type) {
         return main.getConfig().getBoolean("powers." + type.toString().toLowerCase() + ".enabled");
     }
 
     /**
-     * Opens the GUI for the player.
-     * @param player The player.
+     * Opens the MobPowers user interface where they can select a power or view their statistics.
+     * @param player The player about to see their MobPowers UI.
      */
     public void openGUI(Player player) {
         if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld().getName())) {
@@ -217,6 +225,11 @@ public class MobPowersMethods {
         return itemStack;
     }
 
+    /**
+     * Gets the item containing statistics for MobPowers (number of tokens per mob).
+     * @param data Hashmap containing data in the (EntityType mobType, Integer numberOfTokens) format
+     * @return
+     */
     public ItemStack craftStatisticsStack(HashMap<EntityType, Integer> data) {
         ItemStack itemStack = new ItemStack(Material.REDSTONE, 1);
         ItemMeta meta = itemStack.getItemMeta();
@@ -230,10 +243,20 @@ public class MobPowersMethods {
         return itemStack;
     }
 
+    /**
+     * Gets the entity's "nice" name - properly capitalized, without underscores.
+     * @param type The entity type.
+     * @return The nice name.
+     */
     public String getEntityName(EntityType type) {
         return type.toString().toUpperCase().substring(0, 1) + type.toString().toLowerCase().substring(1).replace("_", " ");
     }
 
+    /**
+     * Returns the entity type which is represented by a certain material.
+     * @param material The material.
+     * @return The entity type.
+     */
     public EntityType materialToEntityType(Material material) {
         for (EntityType type : materials.keySet()) {
             if (materials.get(type) == material) {
