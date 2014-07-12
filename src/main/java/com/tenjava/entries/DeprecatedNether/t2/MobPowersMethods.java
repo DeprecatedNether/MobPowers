@@ -71,6 +71,7 @@ public class MobPowersMethods {
         if (!mobs.contains(entity)) {
             return false;
         }
+        if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld())) return false;
         Random random = new Random();
         int chance = main.getConfig().getInt("powers." + entity.toString().toLowerCase() + ".drop-chance");
         if (random.nextInt(100) + 1 > chance) { // gives us a number between 1 and 100. If it's less than or equal to "chance", do something. Larger the chance, more likely this will happen
@@ -90,6 +91,7 @@ public class MobPowersMethods {
     public boolean takeToken(Player player, EntityType entity) {
         FileConfiguration fileConfiguration = getPlayersFile();
         if (!fileConfiguration.isInt(player.getName() + "." + entity.toString().toLowerCase())) return false; // Haven't killed this entity yet
+        if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld())) return false;
         int tokens = fileConfiguration.getInt(player.getName() + "." + entity.toString().toLowerCase());
         int price = main.getConfig().getInt("powers." + entity.toString().toLowerCase() + ".price");
         if (tokens < price) return false;
@@ -105,6 +107,10 @@ public class MobPowersMethods {
      */
     @SuppressWarnings("deprecation")
     public boolean useSuperPower(Player player, EntityType entity) {
+        if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld())) {
+            player.sendMessage(ChatColor.RED + "MobPowers are disabled in this world.");
+            return false;
+        }
         String name = getEntityName(entity);
         if (!takeToken(player, entity)) {
             player.sendMessage(ChatColor.RED + "You do not have enough " + name + " tokens to get " + name + " powers.");
@@ -161,6 +167,10 @@ public class MobPowersMethods {
      * @param player The player.
      */
     public void openGUI(Player player) {
+        if (main.getConfig().getStringList("disabled-worlds").contains(player.getWorld())) {
+            player.sendMessage(ChatColor.RED + "MobPowers are disabled in this world.");
+            return;
+        }
         Inventory inventory = main.getServer().createInventory(player, 9, "MobPowers Selector");
         HashMap<EntityType, Integer> tokenData = new HashMap<EntityType, Integer>();
         // +1 because we need to account for the statistics. / 2 because we need the same (or one more/less) air on both sides.
