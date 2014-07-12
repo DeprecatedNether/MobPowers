@@ -110,7 +110,8 @@ public class MobPowersMethods {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*2, 1, true));
                 break;
             case HORSE:
-                player.addPotionEffect(new PotionEffect(new Random().nextInt(1) == 1 ? PotionEffectType.JUMP : PotionEffectType.SPEED, 60*20, 2, true));
+                Random random = new Random();
+                player.addPotionEffect(new PotionEffect(random.nextInt(1) == 1 ? PotionEffectType.JUMP : PotionEffectType.SPEED, 60*20, random.nextInt(1)+1, true));
                 break;
             case SPIDER:
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
