@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class MobPowersMethods {
     private HashMap<EntityType, Material> materials = new HashMap<EntityType, Material>();
     private HashMap<String, Long> skeletons = new HashMap<String, Long>();
     private HashMap<String, Long> spiders = new HashMap<String, Long>();
+    public BukkitTask particles;
 
     public MobPowersMethods(TenJava main) {
         this.main = main;
@@ -62,6 +64,10 @@ public class MobPowersMethods {
         materials.put(EntityType.SPIDER, Material.matchMaterial(main.getConfig().getString("powers.spider.material").replace(" ", "_")));
         materials.put(EntityType.CAVE_SPIDER, Material.matchMaterial(main.getConfig().getString("powers.cave_spider.material").replace(" ", "_")));
         materials.put(EntityType.SKELETON, Material.matchMaterial(main.getConfig().getString("powers.skeleton.material").replace(" ", "_")));
+
+        if (main.getConfig().getBoolean("show-particles")) {
+            this.particles = new ShowParticles(main).runTaskTimer(main, 10, 10);
+        }
     }
 
     /**
