@@ -1,6 +1,7 @@
 package com.tenjava.entries.DeprecatedNether.t2;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -12,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -102,7 +104,14 @@ public class MobPowersMethods {
         }
         switch (entity) {
             case CREEPER:
-                player.getWorld().createExplosion(player.getLocation(), 5);
+                final Location location = player.getLocation();
+                player.sendMessage(ChatColor.GRAY + "You have 5 seconds to get away from your Creeper explosion.");
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        location.getWorld().createExplosion(location, 5);
+                    }
+                }.runTaskLater(main, 5*20);
                 break;
             case ENDERMAN:
                 player.teleport(player.getTargetBlock(null, 50).getLocation());
