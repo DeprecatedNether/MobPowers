@@ -24,6 +24,10 @@ public class MobPowersCommandHandler implements CommandExecutor {
             sender.sendMessage(ChatColor.RED + "If you aren't a player, how are you supposed to kill mobs to get tokens?");
             return true;
         }
+        if (!sender.hasPermission("mobpowers.use")) {
+            sender.sendMessage(ChatColor.RED + "No access.");
+            return true;
+        }
         Player player = (Player) sender;
         if (args.length == 0) {
             main.methods.openGUI(player);

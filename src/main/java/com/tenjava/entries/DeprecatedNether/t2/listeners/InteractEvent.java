@@ -17,6 +17,7 @@ public class InteractEvent implements Listener {
 
     @EventHandler
     public void interact(PlayerInteractEvent e) {
+        if (!e.getPlayer().hasPermission("mobpowers.use")) return;
         if (!(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
             return;
         }

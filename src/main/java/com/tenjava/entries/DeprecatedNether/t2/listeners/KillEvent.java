@@ -29,6 +29,7 @@ public class KillEvent implements Listener {
         if (!(e.getDamager() instanceof Player)) {
             return;
         }
+        if (!((Player) e.getDamager()).hasPermission("mobpowers.use")) return;
         lastDamage.put(e.getEntity().getUniqueId(), e.getDamager().getUniqueId());
     }
 
