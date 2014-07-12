@@ -3,7 +3,10 @@ package com.tenjava.entries.DeprecatedNether.t2;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,7 +88,27 @@ public class MobPowersMethods {
      */
     public boolean useSuperPower(Player player, EntityType entity) {
         if (!takeToken(player, entity)) return false;
-        return false;
+        switch (entity) {
+            case CREEPER:
+                player.getWorld().createExplosion(player.getLocation(), 5);
+                break;
+            case ENDERMAN:
+                player.teleport(player.getTargetBlock(null, 50).getLocation());
+                break;
+            case GHAST:
+                player.launchProjectile(Fireball.class);
+                break;
+            case SQUID:
+                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60, 1, true));
+                break;
+            case HORSE:
+                player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 60, 2, true));
+                break;
+            case SPIDER:
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60, 2, true));
+                break;
+        }
+        return true;
     }
 
     /**
