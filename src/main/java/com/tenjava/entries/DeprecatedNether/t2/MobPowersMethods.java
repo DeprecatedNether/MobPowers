@@ -43,7 +43,7 @@ public class MobPowersMethods {
         }
         File file = new File(main.getDataFolder(), "players.yml");
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-        fileConfiguration.set(player.getName(), 1);
+        fileConfiguration.set(player.getName() + "." + entity.toString().toLowerCase(), 1);
         try {
             fileConfiguration.save(file);
         } catch (IOException ioe) {
