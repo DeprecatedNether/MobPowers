@@ -23,6 +23,7 @@ public class KillEvent implements Listener {
 
     @EventHandler
     public void kill(EntityDamageByEntityEvent e) {
+        if (!main.methods.isPowerEnabled(e.getEntityType())) return;
         if (!(e.getEntity() instanceof Damageable)) {
             return;
         }
@@ -35,6 +36,7 @@ public class KillEvent implements Listener {
 
     @EventHandler
     public void death(EntityDeathEvent e) {
+        if (!main.methods.isPowerEnabled(e.getEntityType())) return;
         if (e.getEntity().getLastDamageCause().getCause() != EntityDamageEvent.DamageCause.ENTITY_ATTACK) return;
         UUID uuid = lastDamage.get(e.getEntity().getUniqueId());
         if (uuid == null) return;
