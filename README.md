@@ -29,8 +29,8 @@ Usage
 1. Install plugin
 2. Start the server.
 3. You may choose to disable or reconfigure certain powers in the configuration file.
-4. Kill mobs and collect their tokens.
-5. Once you get enough tokens, issue the command `/mobpowers` to select which power to active (alternatively, give yourself a MobPowers wand by issuing `/mobpowers wand`)
+4. Kill mobs and collect their tokens. Every time a mob is killed by a player, it has a chance of giving that player one token.
+5. Once you have enough tokens, you may activate the Mob Power by issuing the command `/mobpowers` (or right-clicking the MobPowers Wand which you can get with `/mobpowers wand`)
 
 Mob powers:
 * **Creeper** allows you to create an explosion.
@@ -38,6 +38,9 @@ Mob powers:
 * **Ghast** allows you to shoot a fireball.
 * **Squid** allows you to breathe underwater for one minute.
 * **Horse** allows you to jump higher than normally for one minute.
+* **Spider** allows you to ~~walk~~ crawl faster.
+* **Skeleton** allows you to shoot arrows 3x faster than normally for 1 minute.
+* **Cave Spider** allows you to poison anybody you hit (Poison 1, for 20 seconds) for 1 minute.
 
 This way, when you kill a mob, none of its **energy** goes to waste - you are able to **harness it and reuse it** to continue doing what the mob was doing before... well, before the player came along and brutally murdered it :)
 
