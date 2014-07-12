@@ -17,6 +17,7 @@ public class TenJava extends JavaPlugin {
         File file = new File(getDataFolder(), "players.yml");
         if (!file.isFile()) {
             try {
+                file.getParentFile().mkdirs();
                 file.createNewFile();
             } catch (IOException ioe) {
                 ioe.printStackTrace();
