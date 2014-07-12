@@ -121,7 +121,7 @@ public class MobPowersMethods {
                 break;
             case SQUID:
                 player.removePotionEffect(PotionEffectType.WATER_BREATHING);
-                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*2, 1, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*20, 1, true));
                 break;
             case HORSE:
                 Random random = new Random();
