@@ -43,14 +43,14 @@ public class MobPowersMethods {
         if (isPowerEnabled(EntityType.CAVE_SPIDER)) mobs.add(EntityType.CAVE_SPIDER);
         if (isPowerEnabled(EntityType.SKELETON)) mobs.add(EntityType.SKELETON);
 
-        descriptions.put(EntityType.CREEPER, "Create an explosion where you're standing.");
-        descriptions.put(EntityType.ENDERMAN, "Teleport to the block you're looking at.");
-        descriptions.put(EntityType.GHAST, "Shoot a fireball.");
-        descriptions.put(EntityType.SQUID, "Breathe underwater.");
-        descriptions.put(EntityType.HORSE, "Jump higher or run faster... you never know!");
-        descriptions.put(EntityType.SPIDER, "Crawl faster.");
-        descriptions.put(EntityType.CAVE_SPIDER, "Poison players you hit.");
-        descriptions.put(EntityType.SKELETON, "Shoot arrows faster than normally.");
+        descriptions.put(EntityType.CREEPER, main.getConfig().getString("powers.creeper.description"));
+        descriptions.put(EntityType.ENDERMAN, main.getConfig().getString("powers.enderman.description"));
+        descriptions.put(EntityType.GHAST, main.getConfig().getString("powers.ghast.description"));
+        descriptions.put(EntityType.SQUID, main.getConfig().getString("powers.squid.description"));
+        descriptions.put(EntityType.HORSE, main.getConfig().getString("powers.horse.description"));
+        descriptions.put(EntityType.SPIDER, main.getConfig().getString("powers.spider.description"));
+        descriptions.put(EntityType.CAVE_SPIDER, main.getConfig().getString("powers.cave_spider.description"));
+        descriptions.put(EntityType.SKELETON, main.getConfig().getString("powers.skeleton.description"));
 
         materials.put(EntityType.CREEPER, Material.SULPHUR);
         materials.put(EntityType.ENDERMAN, Material.ENDER_PEARL);

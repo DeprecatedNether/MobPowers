@@ -3,34 +3,42 @@ powers:
     enabled: true
     drop-chance: 50
     price: 10
+    description: "Create an explosion where you're standing."
   enderman:
     enabled: true
     drop-chance: 80
     price: 5
+    description: "Teleport to the block you're looking at."
   ghast:
     enabled: true
     drop-chance: 90
     price: 3
+    description: "Shoot a fireball."
   squid:
     enabled: true
     drop-chance: 20
     price: 5
+    description: "Breathe underwater."
   horse:
     enabled: true
     drop-chance: 30
     price: 10
+    description: "Jump higher or run faster... you never know!"
   spider:
     enabled: true
     drop-chance: 30
     price: 10
+    description: "Crawl faster."
   cave_spider:
     enabled: true
     drop-chance: 60
     price: 5
+    description: "Poison players you hit."
   skeleton:
     enabled: true
     drop-chance: 20
     price: 15
+    description: "Shoot arrows faster than normally."
 ignore-creative-kills: true
 disabled-worlds:
 - MobArena
