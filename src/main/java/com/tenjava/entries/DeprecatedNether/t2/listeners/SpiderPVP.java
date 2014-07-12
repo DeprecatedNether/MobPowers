@@ -25,7 +25,7 @@ public class SpiderPVP implements Listener {
         Player damagee = (Player) e.getEntity();
         Player damager = (Player) e.getDamager();
         if (main.methods.hasCaveSpiderAttack(damager)) {
-            damagee.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 60*20, 1, false));
+            damagee.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 20*20, 0));
             damager.sendMessage(ChatColor.GREEN + "You used Cave Spider attack!");
         }
     }
