@@ -12,7 +12,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import sun.management.resources.agent;
 
 import java.io.File;
 import java.io.IOException;
@@ -59,16 +58,9 @@ public class MobPowersMethods {
         if (random.nextInt(100) + 1 > chance) { // gives us a number between 1 and 100. If it's less than or equal to "chance", do something. Larger the chance, more likely this will happen
             return false;
         }
-        File file = new File(main.getDataFolder(), "players.yml");
-        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+        FileConfiguration fileConfiguration = getPlayersFile();
         fileConfiguration.set(player.getName() + "." + entity.toString().toLowerCase(), 1);
-        try {
-            fileConfiguration.save(file);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            return false;
-        }
-        return true;
+        return savePlayersFile(fileConfiguration);
     }
 
     /**
@@ -79,20 +71,13 @@ public class MobPowersMethods {
      */
     public boolean takeToken(Player player, EntityType entity) {
         if (mobs.contains(entity)) return false;
-        File file = new File(main.getDataFolder(), "players.yml");
-        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+        FileConfiguration fileConfiguration = getPlayersFile();
         if (!fileConfiguration.isInt(player.getName() + "." + entity.toString().toLowerCase())) return false; // Haven't killed this entity yet
         int tokens = fileConfiguration.getInt(player.getName() + "." + entity.toString().toLowerCase());
         int price = main.getConfig().getInt("powers." + entity.toString().toLowerCase() + ".price");
         if (tokens < price) return false;
         fileConfiguration.set(player.getName() + "." + entity.toString().toLowerCase(), tokens-price);
-        try {
-            fileConfiguration.save(file);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            return false;
-        }
-        return true;
+        return savePlayersFile(fileConfiguration);
     }
 
     /**
@@ -182,6 +167,29 @@ public class MobPowersMethods {
      * @return The number of tokens.
      */
     public int getTokens(Player player, EntityType entity) {
-        return 0;
+
+    }
+
+    /**
+     * Gets the players file.
+     * @return The players file.
+     */
+    public FileConfiguration getPlayersFile() {
+        File file = new File(main.getDataFolder(), "players.yml");
+        return YamlConfiguration.loadConfiguration(file);
+    }
+
+    /**
+     * Saves the players file.
+     * @param configuration The FileConfiguration that has been modified.
+     */
+    public boolean savePlayersFile(FileConfiguration configuration) {
+        try {
+            configuration.save(new File(main.getDataFolder(), "players.yml"));
+            return true;
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            return false;
+        }
     }
 }
