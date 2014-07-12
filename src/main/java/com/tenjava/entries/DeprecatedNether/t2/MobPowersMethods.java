@@ -41,7 +41,7 @@ public class MobPowersMethods {
         descriptions.put(EntityType.ENDERMAN, "Teleport to the block you're looking at.");
         descriptions.put(EntityType.GHAST, "Shoot a fireball.");
         descriptions.put(EntityType.SQUID, "Breathe underwater.");
-        descriptions.put(EntityType.HORSE, "Jump higher.");
+        descriptions.put(EntityType.HORSE, "Jump higher or run faster... you never know!");
         descriptions.put(EntityType.SPIDER, "Crawl faster.");
 
         materials.put(EntityType.CREEPER, Material.SULPHUR);
@@ -110,7 +110,7 @@ public class MobPowersMethods {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 60*2, 1, true));
                 break;
             case HORSE:
-                player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 60*20, 2, true));
+                player.addPotionEffect(new PotionEffect(new Random().nextInt(1) == 1 ? PotionEffectType.JUMP : PotionEffectType.SPEED, 60*20, 2, true));
                 break;
             case SPIDER:
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60*20, 2, true));
