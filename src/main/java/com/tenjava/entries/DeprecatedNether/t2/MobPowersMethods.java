@@ -167,7 +167,7 @@ public class MobPowersMethods {
      * @return The number of tokens.
      */
     public int getTokens(Player player, EntityType entity) {
-
+        return getPlayersFile().getInt(player.getName() + "." + entity.toString().toLowerCase());
     }
 
     /**
