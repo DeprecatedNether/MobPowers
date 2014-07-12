@@ -2,6 +2,7 @@ package com.tenjava.entries.DeprecatedNether.t2.listeners;
 
 import com.tenjava.entries.DeprecatedNether.t2.TenJava;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -42,6 +43,7 @@ public class KillEvent implements Listener {
         if (uuid == null) return;
         Player killer = main.getServer().getPlayer(uuid);
         if (killer == null) return;
+        if (killer.getGameMode() == GameMode.CREATIVE) return;
         if (main.methods.giveToken(killer, e.getEntityType())) {
             killer.sendMessage(ChatColor.GOLD + "You earned one " + main.methods.getEntityName(e.getEntityType()) + " token.");
         }

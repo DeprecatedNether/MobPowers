@@ -31,3 +31,4 @@ powers:
     enabled: true
     drop-chance: 20
     price: 15
+ignore-creative-kills: true
