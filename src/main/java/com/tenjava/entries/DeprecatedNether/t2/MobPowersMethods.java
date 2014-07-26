@@ -84,7 +84,7 @@ public class MobPowersMethods {
         if (!player.hasPermission("mobpowers.use." + entity.toString().toLowerCase().replace("_", ""))) return false;
         Random random = new Random();
         int chance = main.getConfig().getInt("powers." + entity.toString().toLowerCase() + ".drop-chance");
-        if (random.nextInt(100)+1 < chance) { // gives us a number between 1 and 100. If it's less than or equal to "chance", do something. Larger the chance, more likely this will happen
+        if (random.nextInt(100)+1 > chance) { // gives us a number between 1 and 100. If it's less than or equal to "chance", do something. Larger the chance, more likely this will happen
             return false;
         }
         FileConfiguration fileConfiguration = getPlayersFile();
